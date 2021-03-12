@@ -1,23 +1,60 @@
 <template>
 	<div class="container">
 		<div id="app">
-			<HelloWorld msg="Hallo Team!"/>
+		<Input />
+
+			<table>
+				<tr>
+					<th></th>
+					<th>Suchanfrage</th>
+					<th>Anzahl Treffer</th>
+					<th>Korrekte Anzahl</th>
+				</tr>
+				<tr>
+					<td>A</td>
+					<td><input type="text" v-model.number="inx"></td>
+					<td><input type="text" v-model.number="ina"></td>
+					<td>{{ sum }}</td>
+				</tr>
+			</table>
+
 		</div>
   </div>
 </template>
 
+
 <script>
 
-import HelloWorld from './components/HelloWorld.vue'
-
+import Input from './components/Input.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+		Input
+  },
+	props: {
+		ina: {
+			type: Number,
+			default: 0
+		},
+		inx: {
+			type: Number,
+			default: 0
+		},
+	},
+	computed: {
+		sum: function() {
+			return this.ina + this.inx;
+		}
+	}
+
+
 }
+
 </script>
+
+
 <style>
+
 body {
 	background: url(https://blog.fhgr.ch/wp-content/uploads/2018/07/bg-pattern-web_allgem.svg);
   background-color: rgba(0, 0, 0, 0);
@@ -33,9 +70,5 @@ body {
 	background: white;
 	padding: 100px 20px;
 }
-p {
-	font-family: Roboto,sans-serif;
-	font-weight: 300;
-	font-style: normal;
-}
+
 </style>
