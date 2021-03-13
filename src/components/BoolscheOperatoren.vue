@@ -2,7 +2,7 @@
 
 	<table>
 		<tr>
-			<th><Hinweis /></th>
+			<th></th>
 			<th>Suchanfrage</th>
 			<th>Anzahl Treffer</th>
 			<th>Korrekte Anzahl</th>
@@ -29,7 +29,7 @@
 			<td>D</td>
 			<td>{{ suchanfrage.A }} AND {{ suchanfrage.B }}</td>
 			<td><input type="text" v-model.number="treffer.D"></td>
-			<td>&#8804; {{ calcAND(treffer.A, treffer.B) }}</td>
+			<td>&#8804; {{ calcAND(treffer.A, treffer.B) }} <Hinweis hinweis="Hier ein Hinweis"/></td>
 		</tr>
 		<tr>
 			<td>E</td>
