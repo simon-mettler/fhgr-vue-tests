@@ -29,43 +29,43 @@
 			<td>D</td>
 			<td>{{ suchanfrage.A }} AND {{ suchanfrage.B }}</td>
 			<td><input type="text" v-model.number="treffer.D"></td>
-			<td>&#8804; {{ calcAND(treffer.A, treffer.B) }} <Hinweis hinweis="Hier ein Hinweis"/></td>
+			<td>&#8804; {{ calcAND(treffer.A, treffer.B) }} <Hinweis hinweis="Kleinster Wert von A oder B" /></td>
 		</tr>
 		<tr>
 			<td>E</td>
 			<td>{{ suchanfrage.A }} AND {{ suchanfrage.C }}</td>
 			<td><input type="text" v-model.number="treffer.E"></td>
-			<td>&#8804; {{ calcAND(treffer.A, treffer.C) }}</td>
+			<td>&#8804; {{ calcAND(treffer.A, treffer.C) }} <Hinweis hinweis="Kleinster Wert von A oder C" /></td>
 		</tr>
 		<tr>
 			<td>F</td>
 			<td>{{ suchanfrage.B }} AND {{ suchanfrage.C }}</td>
 			<td><input type="text" v-model.number="treffer.F"></td>
-			<td>&#8804; {{ calcAND(treffer.B, treffer.C) }}</td>
+			<td>&#8804; {{ calcAND(treffer.B, treffer.C) }} <Hinweis hinweis="Kleinster Wert von B oder C" /></td>
 		</tr>
 		<tr>
 			<td>G</td>
 			<td>{{ suchanfrage.A }} OR {{ suchanfrage.B }}</td>
 			<td><input type="text" v-model.number="treffer.G"></td>
-			<td>= {{ korrekteAnzahlG }}</td>
+			<td>= {{ korrekteAnzahlG }} <Hinweis hinweis="Anzahl A + Anzahl B - Anzahl D" /></td>
 		</tr>
 		<tr>
 			<td>H</td>
 			<td>({{ suchanfrage.A }} AND {{ suchanfrage.B }}) OR {{ suchanfrage.C }}</td>
 			<td><input type="text" v-model.number="treffer.H"></td>
-			<td>= {{ korrekteAnzahlH }}</td>
+			<td>= {{ korrekteAnzahlH }} <Hinweis hinweis="Anzahl D + Anzahl C - Anzahl E - Anzahl F" /></td>
 		</tr>
 		<tr>
 			<td>I</td>
 			<td>{{ suchanfrage.A }} AND {{ suchanfrage.B }} OR {{ suchanfrage.C }}</td>
 			<td><input type="text" v-model.number="treffer.I"></td>
-			<td>= {{ korrekteAnzahlI }}</td>
+			<td>= {{ korrekteAnzahlI }} <Hinweis hinweis="Normalerweise Anzahl H" /></td>
 		</tr>
 		<tr>
 			<td>J</td>
 			<td>{{ suchanfrage.A }} AND ({{ suchanfrage.B }} OR {{ suchanfrage.C }})</td>
 			<td><input type="text" v-model.number="treffer.J"></td>
-			<td>= {{ korrekteAnzahlJ }}</td>
+			<td>= {{ korrekteAnzahlJ }} <Hinweis hinweis="Anzahl D + Anzahl E - Anzahl F" /></td>
 		</tr>
 	</table>
 
