@@ -12,62 +12,62 @@
 				</tr>
 				<tr>
 					<td>A</td>
-					<td><input type="text" v-model="rowA.suchanfrage"></td>
-					<td><input type="text" v-bind:class="{ wrong: rowA.treffer > 4}" v-model.number="rowA.treffer"></td>
+					<td><input type="text" v-model="suchanfrage.A"></td>
+					<td><input type="text" v-bind:class="{ wrong: treffer.A > 4}" v-model.number="treffer.A"></td>
 					<td>-</td>
 				</tr>
 				<tr>
 					<td>B</td>
-					<td><input type="text" v-model="rowB.suchanfrage"></td>
-					<td><input type="text" v-model.number="rowB.treffer"></td>
+					<td><input type="text" v-model="suchanfrage.B"></td>
+					<td><input type="text" v-model.number="treffer.B"></td>
 					<td>-</td>
 				</tr>
 				<tr>
 					<td>C</td>
-					<td><input type="text" v-model="rowC.suchanfrage"></td>
-					<td><input type="text" v-model.number="rowC.treffer"></td>
+					<td><input type="text" v-model="suchanfrage.C"></td>
+					<td><input type="text" v-model.number="treffer.C"></td>
 					<td>-</td>
 				</tr>
 				<tr>
 					<td>D</td>
-					<td>{{ rowA.suchanfrage }} AND {{ rowB.suchanfrage }}</td>
-					<td><input type="text" v-model.number="rowD.treffer"></td>
-					<td>&#8804; {{ calcAND(rowA.treffer, rowB.treffer) }}</td>
+					<td>{{ suchanfrage.A }} AND {{ suchanfrage.B }}</td>
+					<td><input type="text" v-model.number="treffer.D"></td>
+					<td>&#8804; {{ calcAND(treffer.A, treffer.B) }}</td>
 				</tr>
 				<tr>
 					<td>E</td>
-					<td>{{ rowA.suchanfrage }} AND {{ rowC.suchanfrage }}</td>
-					<td><input type="text" v-model.number="rowE.treffer"></td>
-					<td>&#8804; {{ calcAND(rowA.treffer, rowC.treffer) }}</td>
+					<td>{{ suchanfrage.A }} AND {{ suchanfrage.C }}</td>
+					<td><input type="text" v-model.number="treffer.E"></td>
+					<td>&#8804; {{ calcAND(treffer.A, treffer.C) }}</td>
 				</tr>
 				<tr>
 					<td>F</td>
-					<td>{{ rowB.suchanfrage }} AND {{ rowC.suchanfrage }}</td>
-					<td><input type="text" v-model.number="rowF.treffer"></td>
-					<td>&#8804; {{ calcAND(rowB.treffer, rowC.treffer) }}</td>
+					<td>{{ suchanfrage.B }} AND {{ suchanfrage.C }}</td>
+					<td><input type="text" v-model.number="treffer.F"></td>
+					<td>&#8804; {{ calcAND(treffer.B, treffer.C) }}</td>
 				</tr>
 				<tr>
 					<td>G</td>
-					<td>{{ rowA.suchanfrage }} OR {{ rowB.suchanfrage }}</td>
-					<td><input type="text" v-model.number="rowG.treffer"></td>
+					<td>{{ suchanfrage.A }} OR {{ suchanfrage.B }}</td>
+					<td><input type="text" v-model.number="treffer.G"></td>
 					<td>= {{ korrekteAnzahlG }}</td>
 				</tr>
 				<tr>
 					<td>H</td>
-					<td>({{ rowA.suchanfrage }} AND {{ rowB.suchanfrage }}) OR {{ rowC.suchanfrage }}</td>
-					<td><input type="text" v-model.number="rowH.treffer"></td>
+					<td>({{ suchanfrage.A }} AND {{ suchanfrage.B }}) OR {{ suchanfrage.C }}</td>
+					<td><input type="text" v-model.number="treffer.H"></td>
 					<td>= {{ korrekteAnzahlH }}</td>
 				</tr>
 				<tr>
 					<td>I</td>
-					<td>{{ rowA.suchanfrage }} AND {{ rowB.suchanfrage }} OR {{ rowC.suchanfrage }}</td>
-					<td><input type="text" v-model.number="rowI.treffer"></td>
+					<td>{{ suchanfrage.A }} AND {{ suchanfrage.B }} OR {{ suchanfrage.C }}</td>
+					<td><input type="text" v-model.number="treffer.I"></td>
 					<td>= {{ korrekteAnzahlI }}</td>
 				</tr>
 				<tr>
 					<td>J</td>
-					<td>{{ rowA.suchanfrage }} AND ({{ rowB.suchanfrage }} OR {{ rowC.suchanfrage }})</td>
-					<td><input type="text" v-model.number="rowJ.treffer"></td>
+					<td>{{ suchanfrage.A }} AND ({{ suchanfrage.B }} OR {{ suchanfrage.C }})</td>
+					<td><input type="text" v-model.number="treffer.J"></td>
 					<td>= {{ korrekteAnzahlJ }}</td>
 				</tr>
 			</table>
@@ -86,67 +86,45 @@ export default {
   },
 	data() {
 		return {
-			rowA: {
-				suchanfrage: 'Haus',
-				treffer: ''
+			suchanfrage: {
+				A: 'Haus',
+				B: 'Boot',
+				C: 'Wasser'
 			},
-			rowB: {
-				suchanfrage: 'Boot',
-				treffer: ''
-			},
-			rowC: {
-				suchanfrage: 'Wasser',
-				treffer: ''
-			},
-			rowD: {
-				treffer: ''
-			},
-			rowE: {
-				treffer: ''
-			},
-			rowF: {
-				treffer: ''
-			},
-			rowG: {
-				treffer: ''
-			},
-			rowH: {
-				treffer: ''
-			},
-			rowI: {
-				treffer: ''
-			},
-			rowJ: {
-				treffer: ''
-			},
-		}
-	},
-	methods: {
-		calcAND(num1, num2) {
-			if(num1 && num2) {
-				this.korrekt = 88;
-				return Math.min(num1, num2);
-			} else {
-				return 0;
+			treffer: {
+				A: '',
+				B: '',
+				C: '',
+				D: '',
+				E: '',
+				F: '',
+				G: '',
+				H: '',
+				I: '',
+				J: ''
 			}
 		}
 	},
 	computed: {
 		korrekteAnzahlG() {
-			return this.rowA.treffer + this.rowB.treffer - this.rowD.treffer;
+			return this.treffer.A + this.treffer.B - this.treffer.D;
 		},
 		korrekteAnzahlH() {
-			return this.rowC.treffer + this.rowD.treffer - this.rowE.treffer - this.rowF.treffer;
+			return this.treffer.C + this.treffer.D - this.treffer.E - this.treffer.F;
 		},
 		korrekteAnzahlI() {
-			return this.rowH.treffer + 0; // +0 makes sure that at least 0 is displayed...
+			return this.treffer.H + 0; // +0 makes sure that at least 0 is displayed...
 		},
 		korrekteAnzahlJ() {
-			return this.rowD.treffer + this.rowE.treffer - this.rowF.treffer;
+			return this.treffer.D + this.treffer.E - this.treffer.F;
+		}
+	},
+	methods: {
+		calcAND(num1, num2) {
+			return Math.min(num1, num2);
 		}
 	}
 }
-
 </script>
 
 
