@@ -20,9 +20,4 @@ export default {
 </script>
 
 <style scoped>
-p, td, th {
-	font-family: Roboto,sans-serif;
-	font-weight: 300;
-	font-style: normal;
-}
 </style>

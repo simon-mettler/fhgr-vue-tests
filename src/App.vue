@@ -12,9 +12,27 @@
 				</tr>
 				<tr>
 					<td>A</td>
-					<td><input type="text" v-model.number="inx"></td>
-					<td><input type="text" v-model.number="ina"></td>
-					<td>{{ sum }}</td>
+					<td><input type="text" v-model="boolA1"></td>
+					<td><input type="text" v-model.number="boolA2"></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>B</td>
+					<td><input type="text" v-model="boolB1"></td>
+					<td><input type="text" v-model.number="boolB2"></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>C</td>
+					<td><input type="text" v-model="boolC1"></td>
+					<td><input type="text" v-model.number="boolC2"></td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td>D</td>
+					<td>{{ boolA1 }} AND {{ boolB1 }}</td>
+					<td><input type="text" v-model.number="boolD2"></td>
+					<td>≤ {{ boolD3 }}</td>
 				</tr>
 			</table>
 
@@ -24,7 +42,6 @@
 
 
 <script>
-
 import Input from './components/Input.vue'
 export default {
   name: 'App',
@@ -32,22 +49,40 @@ export default {
 		Input
   },
 	props: {
-		ina: {
-			type: Number,
-			default: 0
+		boolA1: {
+			type: String,
+			default: "Haus"
 		},
-		inx: {
-			type: Number,
-			default: 0
+		boolA2: {
+			type: Number
+		},
+		boolB1: {
+			type: String,
+			default: "Boot"
+		},
+		boolB2: {
+			type: Number
+		},
+		boolC1: {
+			type: String,
+			default: "Wasser"
+		},
+		boolC2: {
+			type: Number
+		},
+		boolD2: {
+			type: Number
 		},
 	},
 	computed: {
-		sum: function() {
-			return this.ina + this.inx;
+		boolD3: function() {
+			if(this.boolA2 && this.boolB2) {
+				return Math.min(this.boolA2, this.boolB2);
+			} else {
+				return 0;
+			}
 		}
 	}
-
-
 }
 
 </script>
@@ -63,12 +98,19 @@ body {
 	background-color: #f6f6f6;
 	margin: 0;
 }
+
 .container {
 	max-width: 900px;
 	border: 1px solid #ecece8;
 	margin: 80px auto;
 	background: white;
 	padding: 100px 20px;
+}
+
+p, td, th {
+	font-family: Roboto,sans-serif;
+	font-weight: 300;
+	font-style: normal;
 }
 
 </style>
