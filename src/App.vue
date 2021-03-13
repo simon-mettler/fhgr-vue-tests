@@ -1,88 +1,18 @@
 <template>
 	<div class="container">
 		<div id="app">
-		<Input />
-
-			<table>
-				<tr>
-					<th></th>
-					<th>Suchanfrage</th>
-					<th>Anzahl Treffer</th>
-					<th>Korrekte Anzahl</th>
-				</tr>
-				<tr>
-					<td>A</td>
-					<td><input type="text" v-model="suchanfrage.A"></td>
-					<td><input type="text" v-bind:class="{ wrong: treffer.A > 4}" v-model.number="treffer.A"></td>
-					<td>-</td>
-				</tr>
-				<tr>
-					<td>B</td>
-					<td><input type="text" v-model="suchanfrage.B"></td>
-					<td><input type="text" v-model.number="treffer.B"></td>
-					<td>-</td>
-				</tr>
-				<tr>
-					<td>C</td>
-					<td><input type="text" v-model="suchanfrage.C"></td>
-					<td><input type="text" v-model.number="treffer.C"></td>
-					<td>-</td>
-				</tr>
-				<tr>
-					<td>D</td>
-					<td>{{ suchanfrage.A }} AND {{ suchanfrage.B }}</td>
-					<td><input type="text" v-model.number="treffer.D"></td>
-					<td>&#8804; {{ calcAND(treffer.A, treffer.B) }}</td>
-				</tr>
-				<tr>
-					<td>E</td>
-					<td>{{ suchanfrage.A }} AND {{ suchanfrage.C }}</td>
-					<td><input type="text" v-model.number="treffer.E"></td>
-					<td>&#8804; {{ calcAND(treffer.A, treffer.C) }}</td>
-				</tr>
-				<tr>
-					<td>F</td>
-					<td>{{ suchanfrage.B }} AND {{ suchanfrage.C }}</td>
-					<td><input type="text" v-model.number="treffer.F"></td>
-					<td>&#8804; {{ calcAND(treffer.B, treffer.C) }}</td>
-				</tr>
-				<tr>
-					<td>G</td>
-					<td>{{ suchanfrage.A }} OR {{ suchanfrage.B }}</td>
-					<td><input type="text" v-model.number="treffer.G"></td>
-					<td>= {{ korrekteAnzahlG }}</td>
-				</tr>
-				<tr>
-					<td>H</td>
-					<td>({{ suchanfrage.A }} AND {{ suchanfrage.B }}) OR {{ suchanfrage.C }}</td>
-					<td><input type="text" v-model.number="treffer.H"></td>
-					<td>= {{ korrekteAnzahlH }}</td>
-				</tr>
-				<tr>
-					<td>I</td>
-					<td>{{ suchanfrage.A }} AND {{ suchanfrage.B }} OR {{ suchanfrage.C }}</td>
-					<td><input type="text" v-model.number="treffer.I"></td>
-					<td>= {{ korrekteAnzahlI }}</td>
-				</tr>
-				<tr>
-					<td>J</td>
-					<td>{{ suchanfrage.A }} AND ({{ suchanfrage.B }} OR {{ suchanfrage.C }})</td>
-					<td><input type="text" v-model.number="treffer.J"></td>
-					<td>= {{ korrekteAnzahlJ }}</td>
-				</tr>
-			</table>
-
+			<BoolscheOperatoren />
 		</div>
   </div>
 </template>
 
 
 <script>
-import Input from './components/Input.vue'
+import BoolscheOperatoren from './components/BoolscheOperatoren.vue'
 export default {
   name: 'App',
   components: {
-		Input
+		BoolscheOperatoren,
   },
 	data() {
 		return {
