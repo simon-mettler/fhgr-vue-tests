@@ -48,31 +48,16 @@ export default {
   components: {
 		Input
   },
-	props: {
-		boolA1: {
-			type: String,
-			default: "Haus"
-		},
-		boolA2: {
-			type: Number
-		},
-		boolB1: {
-			type: String,
-			default: "Boot"
-		},
-		boolB2: {
-			type: Number
-		},
-		boolC1: {
-			type: String,
-			default: "Wasser"
-		},
-		boolC2: {
-			type: Number
-		},
-		boolD2: {
-			type: Number
-		},
+	data: function() {
+	return {
+		boolA1: "Haus",
+		boolA2: '',
+		boolB1: "Boot",
+		boolB2: '',
+		boolC1: "Wasser",
+		boolC2: '',
+		boolD2: '', 
+		}
 	},
 	computed: {
 		boolD3: function() {
