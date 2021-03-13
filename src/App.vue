@@ -12,8 +12,8 @@
 				</tr>
 				<tr>
 					<td>A</td>
-					<td><input type="text" v-model="boolA1"></td>
-					<td><input type="text" v-model.number="boolA2"></td>
+					<td><input type="text" v-model="boolA1.default"></td>
+					<td><input type="text" v-bind:class="{ wrong: boolA2 > 4}" v-model.number="boolA2"></td>
 					<td>-</td>
 				</tr>
 				<tr>
@@ -30,7 +30,7 @@
 				</tr>
 				<tr>
 					<td>D</td>
-					<td>{{ boolA1 }} AND {{ boolB1 }}</td>
+					<td>{{ boolA1.default }} AND {{ boolB1 }}</td>
 					<td><input type="text" v-model.number="boolD2"></td>
 					<td>≤ {{ boolD3 }}</td>
 				</tr>
@@ -50,11 +50,13 @@ export default {
   },
 	data: function() {
 	return {
-		boolA1: "Haus",
+		boolA1: {
+			default: 'Haus',
+			status: true },
 		boolA2: '',
-		boolB1: "Boot",
+		boolB1: 'Boot',
 		boolB2: '',
-		boolC1: "Wasser",
+		boolC1: 'Wasser',
 		boolC2: '',
 		boolD2: '', 
 		}
@@ -96,6 +98,10 @@ p, td, th {
 	font-family: Roboto,sans-serif;
 	font-weight: 300;
 	font-style: normal;
+}
+
+.wrong {
+background-color: red;
 }
 
 </style>
