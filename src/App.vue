@@ -12,27 +12,28 @@
 				</tr>
 				<tr>
 					<td>A</td>
-					<td><input type="text" v-model="boolA1.default"></td>
-					<td><input type="text" v-bind:class="{ wrong: boolA2 > 4}" v-model.number="boolA2"></td>
+					<td><input type="text" v-model="rowA.suchanfrage"></td>
+					<td><input type="text" v-bind:class="{ wrong: rowA.treffer > 4}" v-model.number="rowA.treffer"></td>
 					<td>-</td>
 				</tr>
 				<tr>
 					<td>B</td>
-					<td><input type="text" v-model="boolB1"></td>
-					<td><input type="text" v-model.number="boolB2"></td>
+					<td><input type="text" v-model="rowB.suchanfrage"></td>
+					<td><input type="text" v-model.number="rowB.treffer"></td>
 					<td>-</td>
 				</tr>
 				<tr>
 					<td>C</td>
-					<td><input type="text" v-model="boolC1"></td>
-					<td><input type="text" v-model.number="boolC2"></td>
+					<td><input type="text" v-model="rowC.suchanfrage"></td>
+					<td><input type="text" v-model.number="rowC.treffer"></td>
 					<td>-</td>
 				</tr>
 				<tr>
 					<td>D</td>
-					<td>{{ boolA1.default }} AND {{ boolB1 }}</td>
-					<td><input type="text" v-model.number="boolD2"></td>
-					<td>≤ {{ boolD3 }}</td>
+					<td>{{ rowA.suchanfrage }} AND {{ rowB.suchanfrage }}</td>
+				</tr>
+				<tr>
+					<td>{{ minValue(rowA.treffer, rowB.treffer) }}</td>
 				</tr>
 			</table>
 
@@ -50,21 +51,21 @@ export default {
   },
 	data: function() {
 	return {
-		boolA1: {
-			default: 'Haus',
-			status: true },
-		boolA2: '',
-		boolB1: 'Boot',
-		boolB2: '',
-		boolC1: 'Wasser',
-		boolC2: '',
-		boolD2: '', 
+		rowA: {
+			suchanfrage: 'Haus',
+			treffer: ''},
+		rowB: {
+			suchanfrage: 'Boot',
+			treffer: ''},
+		rowC: {
+			suchanfrage: 'Wasser',
+			treffer: ''},
 		}
 	},
-	computed: {
-		boolD3: function() {
-			if(this.boolA2 && this.boolB2) {
-				return Math.min(this.boolA2, this.boolB2);
+	methods: {
+		minValue(num1, num2) {
+			if(num1 && num2) {
+				return Math.min(num1, num2);
 			} else {
 				return 0;
 			}
