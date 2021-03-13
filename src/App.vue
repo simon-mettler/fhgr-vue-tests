@@ -31,9 +31,44 @@
 				<tr>
 					<td>D</td>
 					<td>{{ rowA.suchanfrage }} AND {{ rowB.suchanfrage }}</td>
+					<td><input type="text" v-model.number="rowD.treffer"></td>
+					<td>&#8804; {{ calcAND(rowA.treffer, rowB.treffer) }}</td>
 				</tr>
 				<tr>
-					<td>{{ minValue(rowA.treffer, rowB.treffer) }}</td>
+					<td>E</td>
+					<td>{{ rowA.suchanfrage }} AND {{ rowC.suchanfrage }}</td>
+					<td><input type="text" v-model.number="rowE.treffer"></td>
+					<td>&#8804; {{ calcAND(rowA.treffer, rowC.treffer) }}</td>
+				</tr>
+				<tr>
+					<td>F</td>
+					<td>{{ rowB.suchanfrage }} AND {{ rowC.suchanfrage }}</td>
+					<td><input type="text" v-model.number="rowF.treffer"></td>
+					<td>&#8804; {{ calcAND(rowB.treffer, rowC.treffer) }}</td>
+				</tr>
+				<tr>
+					<td>G</td>
+					<td>{{ rowA.suchanfrage }} OR {{ rowB.suchanfrage }}</td>
+					<td><input type="text" v-model.number="rowG.treffer"></td>
+					<td>= {{ korrekteAnzahlG }}</td>
+				</tr>
+				<tr>
+					<td>H</td>
+					<td>({{ rowA.suchanfrage }} AND {{ rowB.suchanfrage }}) OR {{ rowC.suchanfrage }}</td>
+					<td><input type="text" v-model.number="rowH.treffer"></td>
+					<td>= {{ korrekteAnzahlH }}</td>
+				</tr>
+				<tr>
+					<td>I</td>
+					<td>{{ rowA.suchanfrage }} AND {{ rowB.suchanfrage }} OR {{ rowC.suchanfrage }}</td>
+					<td><input type="text" v-model.number="rowI.treffer"></td>
+					<td>= {{ korrekteAnzahlI }}</td>
+				</tr>
+				<tr>
+					<td>J</td>
+					<td>{{ rowA.suchanfrage }} AND ({{ rowB.suchanfrage }} OR {{ rowC.suchanfrage }})</td>
+					<td><input type="text" v-model.number="rowJ.treffer"></td>
+					<td>= {{ korrekteAnzahlJ }}</td>
 				</tr>
 			</table>
 
@@ -49,26 +84,65 @@ export default {
   components: {
 		Input
   },
-	data: function() {
-	return {
-		rowA: {
-			suchanfrage: 'Haus',
-			treffer: ''},
-		rowB: {
-			suchanfrage: 'Boot',
-			treffer: ''},
-		rowC: {
-			suchanfrage: 'Wasser',
-			treffer: ''},
+	data() {
+		return {
+			rowA: {
+				suchanfrage: 'Haus',
+				treffer: ''
+			},
+			rowB: {
+				suchanfrage: 'Boot',
+				treffer: ''
+			},
+			rowC: {
+				suchanfrage: 'Wasser',
+				treffer: ''
+			},
+			rowD: {
+				treffer: ''
+			},
+			rowE: {
+				treffer: ''
+			},
+			rowF: {
+				treffer: ''
+			},
+			rowG: {
+				treffer: ''
+			},
+			rowH: {
+				treffer: ''
+			},
+			rowI: {
+				treffer: ''
+			},
+			rowJ: {
+				treffer: ''
+			},
 		}
 	},
 	methods: {
-		minValue(num1, num2) {
+		calcAND(num1, num2) {
 			if(num1 && num2) {
+				this.korrekt = 88;
 				return Math.min(num1, num2);
 			} else {
 				return 0;
 			}
+		}
+	},
+	computed: {
+		korrekteAnzahlG() {
+			return this.rowA.treffer + this.rowB.treffer - this.rowD.treffer;
+		},
+		korrekteAnzahlH() {
+			return this.rowC.treffer + this.rowD.treffer - this.rowE.treffer - this.rowF.treffer;
+		},
+		korrekteAnzahlI() {
+			return this.rowH.treffer + 0; // +0 makes sure that at least 0 is displayed...
+		},
+		korrekteAnzahlJ() {
+			return this.rowD.treffer + this.rowE.treffer - this.rowF.treffer;
 		}
 	}
 }
