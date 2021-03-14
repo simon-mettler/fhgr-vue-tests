@@ -27,6 +27,7 @@ export default {
 .hinweis {
 	display: inline;	
 	position: relative;
+	margin-left: 5px;
 }
 
 .hinweis span {
@@ -39,6 +40,7 @@ export default {
 	display: inline-block;
 	width: 17px;
 	height: 17px;
+	transform: translateY(-1px);
 }
 
 .hinweis p {
@@ -46,7 +48,7 @@ export default {
 	color: white;
 	padding: 10px 12px;
 	width: 180px;
-	left: 0;
+	left: 10px;
 	top: 0;
 	margin: 0 0 0 20px;
 	position: absolute;

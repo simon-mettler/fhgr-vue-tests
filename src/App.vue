@@ -77,14 +77,11 @@ body {
 	padding: 100px 20px;
 }
 
-p, td, th {
+p {
 	font-family: Roboto,sans-serif;
-	font-weight: 300;
 	font-style: normal;
+	font-weight: 300;
 }
 
-.wrong {
-background-color: red;
-}
 
 </style>
