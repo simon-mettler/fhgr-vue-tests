@@ -2,6 +2,7 @@
 	<div class="container">
 		<div id="app">
 			<BoolscheOperatoren />
+			<Trunkierungen />
 		</div>
   </div>
 </template>
@@ -9,10 +10,12 @@
 
 <script>
 import BoolscheOperatoren from './components/BoolscheOperatoren.vue'
+import Trunkierungen from './components/Trunkierungen.vue'
 export default {
   name: 'App',
   components: {
 		BoolscheOperatoren,
+		Trunkierungen
   },
 	data() {
 		return {
