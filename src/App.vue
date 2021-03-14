@@ -84,4 +84,37 @@ p {
 }
 
 
+table {
+	border-spacing: 0;
+	margin: 0 auto;
+}
+
+th {
+	color: #b39048;
+	border-bottom: 2px solid #b39048;
+	text-align: left;
+	font-weight: 700!important;
+}
+
+td, th  {
+	font-family: Roboto, sans-serif;
+	font-style: normal;
+}
+
+td {
+	font-weight: 300;
+}
+
+input {
+	border: none;
+	font-size: 1em;
+	background: #f4eee3;
+	height: 25px;
+	padding-left: 5px;
+	display:table-cell; 
+	width: calc(100% - 6px);
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
+}
+
 </style>
