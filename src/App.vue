@@ -2,6 +2,7 @@
 	<div class="container">
 		<div id="app">
 			<BoolscheOperatoren />
+			<div style="height: 100px"></div>
 			<Trunkierungen />
 		</div>
   </div>
@@ -16,47 +17,7 @@ export default {
   components: {
 		BoolscheOperatoren,
 		Trunkierungen
-  },
-	data() {
-		return {
-			suchanfrage: {
-				A: 'Haus',
-				B: 'Boot',
-				C: 'Wasser'
-			},
-			treffer: {
-				A: '',
-				B: '',
-				C: '',
-				D: '',
-				E: '',
-				F: '',
-				G: '',
-				H: '',
-				I: '',
-				J: ''
-			}
-		}
-	},
-	computed: {
-		korrekteAnzahlG() {
-			return this.treffer.A + this.treffer.B - this.treffer.D;
-		},
-		korrekteAnzahlH() {
-			return this.treffer.C + this.treffer.D - this.treffer.E - this.treffer.F;
-		},
-		korrekteAnzahlI() {
-			return this.treffer.H + 0; // +0 makes sure that at least 0 is displayed...
-		},
-		korrekteAnzahlJ() {
-			return this.treffer.D + this.treffer.E - this.treffer.F;
-		}
-	},
-	methods: {
-		calcAND(num1, num2) {
-			return Math.min(num1, num2);
-		}
-	}
+  }
 }
 </script>
 
