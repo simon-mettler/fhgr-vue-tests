@@ -108,7 +108,7 @@ export default {
 			return this.treffer.C + this.treffer.D - this.treffer.E - this.treffer.F;
 		},
 		korrekteAnzahlI() {
-			return this.treffer.H + 0; // +0 makes sure that at least 0 is displayed...
+			return this.treffer.H - 0; // -0 forces type-conversion
 		},
 		korrekteAnzahlJ() {
 			return this.treffer.D + this.treffer.E - this.treffer.F;
@@ -124,34 +124,6 @@ export default {
 
 
 <style scoped>
-
-.wrong {
-	background-color: #ffd1d1;
-	border: 1px solid red;
-	width: 142px;
-	height: 23px;
-}
-
-
-td:nth-child(1){
-	width: 22px;
-	padding-left: 5px;
-	color: #b39048;
-	font-weight: 700;
-}
-
-td:nth-child(2) {
-	min-width: 220px;
-}
-
-td:nth-child(3) {
-	width: 150px;
-}
-
-td:nth-child(4) {
-	width: 130px;
-	padding-left: 10px;
-}
 
 
 </style>

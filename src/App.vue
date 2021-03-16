@@ -47,7 +47,6 @@ p {
 	font-weight: 300;
 }
 
-
 table {
 	border-spacing: 0;
 	margin: 0 auto;
@@ -67,6 +66,34 @@ td, th  {
 
 td {
 	font-weight: 300;
+}
+
+.wrong {
+	background-color: #ffd1d1;
+	border: 1px solid red;
+	width: 142px;
+	height: 23px;
+}
+
+td:nth-child(1){
+	width: 23px;
+	padding-right: 3px;
+	color: #b39048;
+	font-weight: 700;
+	text-align: center;
+}
+
+td:nth-child(2) {
+	min-width: 220px;
+}
+
+td:nth-child(3) {
+	width: 150px;
+}
+
+td:nth-child(4) {
+	width: 200px;
+	padding-left: 10px;
 }
 
 input {
